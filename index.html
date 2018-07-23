@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Front End Challenge</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="content-left">
+            <img src="img/profile.svg">
+            <h2>Front-end challenge!</h2>
+            <p>This is a design that you will need to code up and impress us.</p>
+            <img onclick="expand()" src="img/right-arrow.svg">
+        </div>
+        <div class="content-right">
+            <div class="content-right__panel">
+                <h1>My World Today</h1>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. View all days eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. 
+                    Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat</p>
+            </div>
+            <form>
+                <div class="form-item">
+                    <label class="form-item__label" for="name">Name</label>
+                    <input class="form-item__input" type="text" id="name" name="name" placeholder="Full Name">
+                </div>
+                <div class="form-item--radio">
+                        <label class="form-item__label" for="gender">Gender</label>
+                        <span>
+                            <label class="radio-label" for="male">
+                                <input class="radio" type="radio" id="male" name="gender">
+                                <div class="form-item__input radio--male"></div>
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-label" for="female">
+                                <input class="radio" type="radio" id="female" name="gender">
+                                <div class="form-item__input radio--female"></div>
+                                <span>Female</span>
+                            </label>
+                        </span>
+                        
+                </div>
+                <div class="form-item">
+                        <label class="form-item__label" for="dob">Date of Birth</label>
+                        <span>
+                            <input class="form-item__input" type="text" id="dob" name="dob" placeholder="01/02/1983">
+                            <img class="form-item__input-icon" src="img/date.svg">
+                        </span>
+                </div>
+                <div class="form-item">
+                    <label class="form-item__label" for="email">Email</label>
+                    <input class="form-item__input" type="email" id="email" name="email" placeholder="john@email.com">
+                </div>
+                <div class="form-item">
+                    <label class="form-item__label" for="mobile">Mobile</label>
+                    <input class="form-item__input" type="text" id="mobile" name="mobile" placeholder="+91 98765 43210">
+                </div>
+                <div class="form-item">
+                    <label class="form-item__label" for="customerID">Customer ID</label>
+                    <input class="form-item__input" type="text" id="customerID" name="customerID" placeholder="576802-ERD0348 45">
+                </div>
+                <div class="form-item">
+                    <label class="form-item__label" for="membership">Membership</label>
+                    <input class="form-item__input" type="text" id="membership" name="membership" placeholder="Full Name">
+                </div>
+            </form>
+        </div>
+    </div> 
+    <script  src="lib/jquery-3.3.1.min.js"></script> 
+    <script  src="lib/jquery-ui.min.js"></script> 
+    <script  src="js/main.js"></script> 
+</body>
+</html>

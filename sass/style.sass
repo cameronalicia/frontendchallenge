@@ -1,0 +1,169 @@
+@import 'variables/variables'
+
+*
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+
+.content
+    // height: -webkit-fill-available
+    display: flex
+    overflow: hidden
+    font-family: Arial
+    color: $black
+    border-radius: 42.5px
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.13)
+    // width: 100%
+     
+    
+
+.content-left
+    background-color: $sunflower-yellow
+    flex-direction: column
+    // width: 25%
+    // padding: 165px 75px 110px 
+    text-align: center
+    justify-content: space-around
+    line-height: 1.53
+    
+    h1
+        font-size: 24px
+
+    p
+        font-size: 18px
+
+
+
+.content-right
+    flex-direction: column
+    // padding: 63px 35px 153px 
+    // right: 100%
+
+.content-right__panel
+    @extend .content-right
+    background-color: $tangerine
+    border-radius: 0px 42.5px 42.5px 0px
+    color: $charcoal-grey
+    height: 100%
+    justify-content: center
+    display: none
+    padding: 250px 80px 250px 80px
+    line-height: 1.53
+
+form
+    
+
+.form-item
+    color: $charcoal-grey
+    display: grid
+    grid-template-columns: 1fr 3fr
+    align-items: center
+    margin-top: 20px
+
+    span
+        position: relative
+        display: flex
+         
+    input[type="radio"]
+        width: 0
+.form-item--radio
+    @extend .form-item
+    
+.form-item__input-icon
+    position: absolute
+    top: 0
+    right: 0
+    padding: 15px 
+
+.form-item__label
+    font-size: 16px
+    text-align: left
+
+.form-item__input
+    height: 53px
+    width: 100%
+    font-size: 16px
+    font-weight: 500
+    color: $charcoal-grey
+    border-radius: 5.3px
+    background-color: $pale-grey
+    border: solid 1px $pale-grey
+    padding: 20px
+    transition: all 0.25s ease-in-out
+
+    &:focus
+        outline: none
+        background-color: rgba(245, 248, 249, 0.3)
+        border: solid 1px $cloudy-blue
+    &:hover
+        border: solid 1px $cloudy-blue
+
+.radio
+    visibility: hidden
+    position: absolute
+
+    &:checked
+        + .radio--male
+            background-color: $cloudy-blue-two
+            background-image: url("../img/male-white.svg")
+        + .radio--female
+            background-color: $cloudy-blue-two
+            background-image: url("../img/female-white.svg")
+    
+.radio-img
+    display: inline-block
+    background-color: $pale-grey
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 50%
+    height: 53px
+    width: 53px
+    margin-right: 20px
+
+    &:hover
+        background-color: var $pale-grey
+        border: solid 1.2px #b3c1ce
+
+.radio-label
+    display: flex
+    align-items: center
+    margin-right: 50px
+      
+.radio--male
+    @extend .radio-img
+    background-image: url("../img/male-grey.svg")
+
+.radio--female      
+    @extend .radio-img
+    background-image: url("../img/female-grey.svg")
+
+@media only screen and (min-width: 320px) //mobile
+     // min-width: 100%
+
+@media only screen and (min-width: 1024px) //desktop
+    .content
+        margin: 66px 26px
+
+    .content-left
+        width: 392px
+        padding: 165px 75px 110px 
+
+    .content-right
+        
+    form
+        padding: 63px 35px 153px 
+
+@media only screen and (min-width: 1440px) //desktop HD
+    .content
+        margin: 66px 42px
+
+    .content-left
+        width: 553px
+        padding: 165px 98px 110px 
+        color: green
+
+    .content-right
+        
+    form
+        width: 900px
+        padding: 111px 155px 105px 
