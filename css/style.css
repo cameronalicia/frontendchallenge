@@ -5,12 +5,13 @@
 }
 
 body {
-  margin: 20px;
+  margin: 0px;
   display: flex;
   justify-content: center;
 }
 
 .content {
+  margin: 20px;
   height: 892px;
   display: flex;
   overflow: hidden;
@@ -235,9 +236,80 @@ input:focus {
   margin-right: 20px;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 1023px) {
+  .content {
+    min-width: 100%;
+    flex-direction: column;
+    border-radius: 0px;
+    overflow: unset;
+    height: auto;
+    margin: 0;
+  }
+
+  .content-left {
+    display: unset;
+    flex-direction: unset;
+    padding: 40% 10%;
+    height: -webkit-fill-available;
+  }
+  .content-left .container {
+    display: inline-block;
+  }
+  .content-left .expand-arrow {
+    transform: rotate(90deg);
+  }
+  .content-left .expand-arrow.rotate {
+    transform: rotate(-90deg);
+  }
+  .content-left p {
+    font-size: 22px;
+    line-height: 1.26;
+  }
+
+  .content-right, .content-right__panel {
+    height: 950px;
+    border-radius: 0px;
+  }
+  .content-right__panel {
+    padding: 10%;
+  }
+  .content-right .form-item, .content-right__panel .form-item, .content-right .form-item--gender, .content-right__panel .form-item--gender, .content-right .form-item--membership, .content-right__panel .form-item--membership {
+    display: block;
+  }
+  .content-right .form-item__input, .content-right__panel .form-item__input {
+    margin-top: 1%;
+  }
+  .content-right .form-item__input-icon, .content-right__panel .form-item__input-icon {
+    top: unset;
+    bottom: 0;
+  }
+  .content-right .form-item__input-button, .content-right__panel .form-item__input-button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .content-right .form-item--gender, .content-right__panel .form-item--gender, .content-right .form-item--membership, .content-right__panel .form-item--membership {
+    margin-top: 0;
+  }
+  .content-right .form-item--gender .form-item__label, .content-right__panel .form-item--gender .form-item__label, .content-right .form-item--membership .form-item__label, .content-right__panel .form-item--membership .form-item__label {
+    display: block;
+  }
+  .content-right .form-item--gender .radio-label, .content-right__panel .form-item--gender .radio-label, .content-right .form-item--membership .radio-label, .content-right__panel .form-item--membership .radio-label {
+    margin-right: 5%;
+    display: inline-flex;
+  }
+  .content-right .form-item--button, .content-right__panel .form-item--button {
+    display: block;
+    margin-top: 5%;
+  }
+  .content-right form, .content-right__panel form {
+    padding: 15% 7%;
+  }
+}
 @media only screen and (min-width: 1024px) {
   .content {
     width: 975px;
+    flex-direction: unset;
   }
 
   .content-left {
@@ -254,14 +326,14 @@ input:focus {
   .content-right, .content-right__panel {
     width: 583px;
   }
-
-  form {
+  .content-right form, .content-right__panel form {
     padding: 63px 35px 153px;
   }
 }
 @media only screen and (min-width: 1440px) {
   .content {
     width: 1360px;
+    flex-direction: unset;
   }
 
   .content-left {
@@ -279,8 +351,7 @@ input:focus {
   .content-right, .content-right__panel {
     width: 807px;
   }
-
-  form {
+  .content-right form, .content-right__panel form {
     padding: 111px 155px 105px;
   }
 }
