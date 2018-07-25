@@ -10,10 +10,14 @@
 <body>
     <div class="content">
         <div class="content-left">
-            <img src="img/profile.svg">
-            <h2>Front-end challenge!</h2>
-            <p>This is a design that you will need to code up and impress us.</p>
-            <img onclick="expand()" src="img/right-arrow.svg">
+            <div class="container">
+                <div class="container__image"></div>
+            </div>
+            <div>
+                <h1>Front-end challenge!</h1>
+                <p>This is a design that you will need to code up and impress us.</p>
+            </div>
+            <img class="expand-arrow" onclick="expandRightPanel()" src="img/right-arrow.svg">
         </div>
         <div class="content-right">
             <div class="content-right__panel">
@@ -26,32 +30,32 @@
                     <label class="form-item__label" for="name">Name</label>
                     <input class="form-item__input" type="text" id="name" name="name" placeholder="Full Name">
                 </div>
-                <div class="form-item--radio">
-                        <label class="form-item__label" for="gender">Gender</label>
-                        <span>
-                            <label class="radio-label" for="male">
-                                <input class="radio" type="radio" id="male" name="gender">
-                                <div class="form-item__input radio--male"></div>
-                                <span>Male</span>
-                            </label>
-                            <label class="radio-label" for="female">
-                                <input class="radio" type="radio" id="female" name="gender">
-                                <div class="form-item__input radio--female"></div>
-                                <span>Female</span>
-                            </label>
-                        </span>
-                        
+                <div class="form-item--gender">
+                    <label class="form-item__label" for="gender">Gender</label>
+                    <!-- <span> -->
+                        <label class="radio-label" for="male">
+                            <input class="radio" type="radio" id="male" name="gender">
+                            <div class="form-item__input radio-gender--male space-right--small"></div>
+                            <span>Male</span>
+                        </label>
+                        <label class="radio-label" for="female">
+                            <input class="radio" type="radio" id="female" name="gender">
+                            <div class="form-item__input radio-gender--female space-right--small"></div>
+                            <span>Female</span>
+                        </label>
+                    <!-- </span> -->
                 </div>
                 <div class="form-item">
-                        <label class="form-item__label" for="dob">Date of Birth</label>
-                        <span>
-                            <input class="form-item__input" type="text" id="dob" name="dob" placeholder="01/02/1983">
-                            <img class="form-item__input-icon" src="img/date.svg">
-                        </span>
+                    <label class="form-item__label" for="dob">Date of Birth</label>
+                    <span>
+                        <input class="form-item__input" type="text" id="dob" name="dob" placeholder="01/02/1983">
+                        <img class="form-item__input-icon" src="img/date.svg">
+                    </span>
                 </div>
                 <div class="form-item">
                     <label class="form-item__label" for="email">Email</label>
                     <input class="form-item__input" type="email" id="email" name="email" placeholder="john@email.com">
+                    <span class="validation-text"></span>
                 </div>
                 <div class="form-item">
                     <label class="form-item__label" for="mobile">Mobile</label>
@@ -61,9 +65,29 @@
                     <label class="form-item__label" for="customerID">Customer ID</label>
                     <input class="form-item__input" type="text" id="customerID" name="customerID" placeholder="576802-ERD0348 45">
                 </div>
-                <div class="form-item">
+                <div class="form-item--membership">
                     <label class="form-item__label" for="membership">Membership</label>
-                    <input class="form-item__input" type="text" id="membership" name="membership" placeholder="Full Name">
+                    <!-- <span> -->
+                        <label class="radio-label" for="classic">
+                            <input class="radio" type="radio" id="classic" name="membership">
+                            <div class="form-item__input radio-membership space-right--small"></div>
+                            <span>Classic</span>
+                        </label>
+                        <label class="radio-label" for="silver">
+                            <input class="radio" type="radio" id="silver" name="membership">
+                            <div class="form-item__input radio-membership space-right--small"></div>
+                            <span>Silver</span>
+                        </label>
+                        <label class="radio-label" for="gold">
+                            <input class="radio" type="radio" id="gold" name="membership">
+                            <div class="form-item__input radio-membership space-right--small"></div>
+                            <span>Gold</span>
+                        </label>
+                    <!-- </span> -->
+                </div>
+                <div class="form-item--button">
+                    <button class="form-item__input-button space-right--small" type="reset">CANCEL</button>
+                    <button class="form-item__input-button" type="submit">SAVE</button>
                 </div>
             </form>
         </div>

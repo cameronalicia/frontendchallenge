@@ -1,41 +1,75 @@
-@import 'variables/variables'
+@import 'variables/colors'
 
 *
     box-sizing: border-box
     -moz-box-sizing: border-box
     -webkit-box-sizing: border-box
+    
+body
+    margin: 20px
+    display: flex
+    justify-content: center
+
+@mixin margin($val)
+    margin: $val
+
+@mixin background-image()
+    background-repeat: no-repeat
+    background-position: center
+
+@mixin transition-property()
+    transition: all 0.25s ease-in-out 0.25s   
 
 .content
-    // height: -webkit-fill-available
+    height: 892px
     display: flex
     overflow: hidden
     font-family: Arial
     color: $black
     border-radius: 42.5px
     box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.13)
-    // width: 100%
-     
-    
+    // margin: 60px 26px
 
 .content-left
+    display: flex
     background-color: $sunflower-yellow
     flex-direction: column
     // width: 25%
     // padding: 165px 75px 110px 
+    align-items: center
     text-align: center
     justify-content: space-around
     line-height: 1.53
     
-    h1
-        font-size: 24px
+    .container
+        width: 238px
+        height: 238px
+        border-radius: 50%
+        overflow: hidden
+        
+        &__image
+            @include transition-property
+            width: 100%
+            height: 100%
+            background-image: url('../img/profile.svg')
+            background-size: contain
 
-    p
-        font-size: 18px
+            &:hover
+                width: 125%
+                height: 125%
+                margin-left: -12.5%
+                margin-top: -20%
 
+.expand-arrow
+    @include transition-property
 
+.rotate
+    transform: rotate(-180deg)
 
 .content-right
     flex-direction: column
+    height: inherit
+    // width: inherit
     // padding: 63px 35px 153px 
     // right: 100%
 
@@ -44,34 +78,50 @@
     background-color: $tangerine
     border-radius: 0px 42.5px 42.5px 0px
     color: $charcoal-grey
-    height: 100%
+    position: absolute
     justify-content: center
     display: none
-    padding: 250px 80px 250px 80px
+    padding: 241px 80px 250px 80px
     line-height: 1.53
-
-form
-    
+    z-index: 1
 
 .form-item
     color: $charcoal-grey
     display: grid
     grid-template-columns: 1fr 3fr
     align-items: center
-    margin-top: 20px
+    position: relative
 
     span
-        position: relative
         display: flex
-         
-    input[type="radio"]
-        width: 0
-.form-item--radio
+
+    &--button
+        @include margin(80px 0 0)
+        display: flex
+        justify-content: flex-end
+        // margin-top: 60px
+        // margin-left: 20px
+        // outline: none
+        // height: 53px
+
+    + .form-item
+        padding-top: 20px
+    
+// .form-item--radio
+//     @extend .form-item
+//     grid-template-columns: 125px auto auto auto
+.form-item--gender
+     @extend .form-item
+     grid-template-columns: 125px auto auto
+
+.form-item--membership
     @extend .form-item
+    @include margin(40px 0 0)
+    grid-template-columns: 125px auto auto auto
     
 .form-item__input-icon
     position: absolute
-    top: 0
+    top: 22px
     right: 0
     padding: 15px 
 
@@ -80,6 +130,7 @@ form
     text-align: left
 
 .form-item__input
+    @include transition-property
     height: 53px
     width: 100%
     font-size: 16px
@@ -89,81 +140,146 @@ form
     background-color: $pale-grey
     border: solid 1px $pale-grey
     padding: 20px
-    transition: all 0.25s ease-in-out
 
     &:focus
-        outline: none
+        // outline: none
         background-color: rgba(245, 248, 249, 0.3)
         border: solid 1px $cloudy-blue
     &:hover
         border: solid 1px $cloudy-blue
+
+    &-button
+        @include transition-property
+        border-radius: 5.3px
+        width: 160px
+        height: 53px
+        outline: none
+        border: none
+        font-size: 15px
+
+        &[type="reset"]
+            background-color: $pale-grey
+            color: $charcoal-grey
+            &:hover
+                background-color: $cloudy-blue
+        &[type="submit"]
+            background-color: $tiffany-blue
+            color: $white
+            &:hover
+                background-color: $greeny-blue
+        
 
 .radio
     visibility: hidden
     position: absolute
 
     &:checked
-        + .radio--male
+        + .radio-gender--male
             background-color: $cloudy-blue-two
             background-image: url("../img/male-white.svg")
-        + .radio--female
+        + .radio-gender--female
             background-color: $cloudy-blue-two
             background-image: url("../img/female-white.svg")
+        + .radio-membership
+            background-color: $cloudy-blue-two
+            background-image: url("../img/card-white.svg")
     
 .radio-img
+    @include background-image
     display: inline-block
     background-color: $pale-grey
-    background-repeat: no-repeat
-    background-position: center
     border-radius: 50%
     height: 53px
     width: 53px
-    margin-right: 20px
+    // margin-right: 20px
 
     &:hover
-        background-color: var $pale-grey
+        background-color: $pale-grey
         border: solid 1.2px #b3c1ce
 
 .radio-label
     display: flex
     align-items: center
-    margin-right: 50px
+    // margin-right: 50px
+    font-size: 14px
+    // width: 100%
       
-.radio--male
+.radio-gender--male
     @extend .radio-img
     background-image: url("../img/male-grey.svg")
 
-.radio--female      
+.radio-gender--female      
     @extend .radio-img
     background-image: url("../img/female-grey.svg")
+
+.radio-membership
+    @extend .radio-img
+    background-image: url("../img/card-grey.svg")
+
+input[type="radio"]
+        width: 0
+
+input[type='email']:invalid
+    border: 1px solid $tangerine
+    color: $tangerine
+    + *:before
+        content: 'Invalid email address'
+        position: absolute
+        font-size: 12px
+        color: $tangerine
+        right: 0
+        bottom: -15px
+
+input:focus
+    outline: none
+
+.space-above
+    &--med
+        margin-top: 60px
+
+.space-right
+    &--small
+        margin-right: 20px
 
 @media only screen and (min-width: 320px) //mobile
      // min-width: 100%
 
 @media only screen and (min-width: 1024px) //desktop
     .content
-        margin: 66px 26px
+        width: 975px
 
     .content-left
         width: 392px
-        padding: 165px 75px 110px 
+        padding: 165px 50px 110px 
+
+        h1
+            font-size: 24px
+
+        p
+            font-size: 18px
 
     .content-right
+        width: 583px
         
     form
         padding: 63px 35px 153px 
 
 @media only screen and (min-width: 1440px) //desktop HD
     .content
-        margin: 66px 42px
+        width: 1360px
 
     .content-left
         width: 553px
-        padding: 165px 98px 110px 
-        color: green
+        padding: 165px 80px 110px 
+        h1
+            font-size: 36px
+
+        p
+            font-size: 22px
+            line-height: 1.26
 
     .content-right
+        width: 807px
         
     form
-        width: 900px
         padding: 111px 155px 105px 
