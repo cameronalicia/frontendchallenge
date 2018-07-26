@@ -1,0 +1,9 @@
+Some obstacles I faced during the challenge:
+
+- I was unfamiliar with SASS, but tremendously enjoyed learning about and using it.
+
+- The BEM naming convention is another thing I was unfamiliar with, I can see why it is useful and I liked using it.
+In all honesty, I believe I would need more experience with it in order to make use of it the way it is intended.
+
+- With regards to browser compatibility, I mostly catered for Chrome, Firefox and Safari.
+Unfortunately I only have access to a very old MacBook Pro, therefore I did not see it on a big screen in Safari.

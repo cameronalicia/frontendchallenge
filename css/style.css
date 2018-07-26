@@ -11,6 +11,8 @@ body {
 }
 
 .content {
+  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.13);
+  -webkit-box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.13);
   margin: 20px;
   height: 892px;
   display: flex;
@@ -18,13 +20,12 @@ body {
   font-family: Arial;
   color: #383838;
   border-radius: 42.5px;
-  box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.13);
 }
 
 .content-left {
   display: flex;
-  background-color: #ffd500;
   flex-direction: column;
+  background-color: #ffd500;
   align-items: center;
   text-align: center;
   justify-content: space-around;
@@ -37,11 +38,12 @@ body {
   overflow: hidden;
 }
 .content-left .container__image {
-  transition: all 0.25s ease-in-out 0.25s;
   width: 100%;
   height: 100%;
   background-image: url("../img/profile.svg");
   background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.25s ease-in-out 0.25s;
 }
 .content-left .container__image:hover {
   width: 125%;
@@ -50,25 +52,16 @@ body {
   margin-top: -20%;
 }
 
-.expand-arrow {
-  transition: all 0.25s ease-in-out 0.25s;
-}
-
-.rotate {
-  transform: rotate(-180deg);
-}
-
-.content-right, .content-right__panel {
-  flex-direction: column;
+.content-right {
   height: inherit;
 }
-
 .content-right__panel {
+  height: inherit;
+  width: inherit;
   background-color: #ff9200;
   border-radius: 0px 42.5px 42.5px 0px;
   color: #373d40;
   position: absolute;
-  justify-content: center;
   display: none;
   padding: 241px 80px 250px 80px;
   line-height: 1.53;
@@ -82,50 +75,24 @@ body {
   align-items: center;
   position: relative;
 }
-.form-item span, .form-item--membership span, .form-item--gender span {
-  display: flex;
-}
-.form-item--button {
-  margin: 80px 0 0;
-  display: flex;
-  justify-content: flex-end;
-}
 .form-item + .form-item, .form-item--membership + .form-item, .form-item + .form-item--membership, .form-item--membership + .form-item--membership, .form-item--gender + .form-item, .form-item--gender + .form-item--membership, .form-item + .form-item--gender, .form-item--membership + .form-item--gender, .form-item--gender + .form-item--gender {
   padding-top: 20px;
-}
-
-.form-item--gender {
-  grid-template-columns: 125px auto auto;
-}
-
-.form-item--membership {
-  margin: 40px 0 0;
-  grid-template-columns: 125px auto auto auto;
-}
-
-.form-item__input-icon {
-  position: absolute;
-  top: 22px;
-  right: 0;
-  padding: 15px;
 }
 
 .form-item__label {
   font-size: 16px;
   text-align: left;
 }
-
 .form-item__input {
-  transition: all 0.25s ease-in-out 0.25s;
-  height: 53px;
   width: 100%;
+  padding: 20px;
   font-size: 16px;
   font-weight: 500;
   color: #373d40;
-  border-radius: 5.3px;
   background-color: #f5f8f9;
+  border-radius: 5.3px;
   border: solid 1px #f5f8f9;
-  padding: 20px;
+  transition: all 0.25s ease-in-out 0.25s;
 }
 .form-item__input:focus {
   background-color: rgba(245, 248, 249, 0.3);
@@ -134,57 +101,49 @@ body {
 .form-item__input:hover {
   border: solid 1px #cad7dd;
 }
-.form-item__input-button {
-  transition: all 0.25s ease-in-out 0.25s;
-  border-radius: 5.3px;
-  width: 160px;
-  height: 53px;
-  outline: none;
-  border: none;
-  font-size: 15px;
+.form-item__input-icon {
+  position: absolute;
+  top: 22px;
+  right: 0;
+  padding: 15px;
 }
-.form-item__input-button[type=reset] {
-  background-color: #f5f8f9;
-  color: #373d40;
+.form-item--gender {
+  grid-template-columns: 125px auto auto;
 }
-.form-item__input-button[type=reset]:hover {
-  background-color: #cad7dd;
-}
-.form-item__input-button[type=submit] {
-  background-color: #60e6c5;
-  color: #ffffff;
-}
-.form-item__input-button[type=submit]:hover {
-  background-color: #49c8a8;
+.form-item--membership {
+  margin: 40px 0 0;
+  grid-template-columns: 125px auto auto auto;
 }
 
-.radio {
+.radio-input {
   visibility: hidden;
   position: absolute;
 }
-.radio:checked + .radio-gender--male {
+.radio-input:checked + .radio-gender--male {
   background-color: #b1bfcd;
   background-image: url("../img/male-white.svg");
 }
-.radio:checked + .radio-gender--female {
+.radio-input:checked + .radio-gender--female {
   background-color: #b1bfcd;
   background-image: url("../img/female-white.svg");
 }
-.radio:checked + .radio-membership {
+.radio-input:checked + .radio-membership {
   background-color: #b1bfcd;
   background-image: url("../img/card-white.svg");
 }
 
-.radio-img, .radio-membership, .radio-gender--female, .radio-gender--male {
-  background-repeat: no-repeat;
-  background-position: center;
-  display: inline-block;
-  background-color: #f5f8f9;
-  border-radius: 50%;
+.radio-membership, .radio-gender--female, .radio-gender--male {
   height: 53px;
   width: 53px;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f5f8f9;
+  border: solid 1.2px #f5f8f9;
+  border-radius: 50%;
+  transition: all 0.25s ease-in-out 0.25s;
 }
-.radio-img:hover, .radio-membership:hover, .radio-gender--female:hover, .radio-gender--male:hover {
+.radio-membership:hover, .radio-gender--female:hover, .radio-gender--male:hover {
   background-color: #f5f8f9;
   border: solid 1.2px #b3c1ce;
 }
@@ -194,21 +153,54 @@ body {
   align-items: center;
   font-size: 14px;
 }
-
 .radio-gender--male {
   background-image: url("../img/male-grey.svg");
 }
-
 .radio-gender--female {
   background-image: url("../img/female-grey.svg");
 }
-
 .radio-membership {
   background-image: url("../img/card-grey.svg");
 }
 
-input[type=radio] {
-  width: 0;
+.form-buttons {
+  margin: 80px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.form-buttons button {
+  transition: all 0.25s ease-in-out 0.25s;
+  border-radius: 5.3px;
+  width: 160px;
+  height: 53px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+.form-buttons button[type=reset] {
+  background-color: #f5f8f9;
+  color: #373d40;
+  margin: 0 20px 0 0;
+}
+.form-buttons button[type=reset]:hover {
+  background-color: #cad7dd;
+}
+.form-buttons button[type=submit] {
+  background-color: #60e6c5;
+  color: #ffffff;
+}
+.form-buttons button[type=submit]:hover {
+  background-color: #49c8a8;
+}
+
+.expand-arrow {
+  transition: all 0.25s ease-in-out 0.25s;
+}
+
+.rotate {
+  transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
 }
 
 input[type=email]:invalid {
@@ -228,14 +220,6 @@ input:focus {
   outline: none;
 }
 
-.space-above--med {
-  margin-top: 60px;
-}
-
-.space-right--small {
-  margin-right: 20px;
-}
-
 @media only screen and (min-width: 320px) and (max-width: 1023px) {
   .content {
     min-width: 100%;
@@ -247,63 +231,64 @@ input:focus {
   }
 
   .content-left {
-    display: unset;
-    flex-direction: unset;
-    padding: 40% 10%;
-    height: -webkit-fill-available;
+    padding: 8% 10%;
+    justify-content: center;
   }
   .content-left .container {
-    display: inline-block;
+    position: relative;
   }
   .content-left .expand-arrow {
     transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
   }
   .content-left .expand-arrow.rotate {
     transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
   }
   .content-left p {
     font-size: 22px;
     line-height: 1.26;
   }
 
-  .content-right, .content-right__panel {
-    height: 950px;
-    border-radius: 0px;
+  .content-right {
+    height: 1000px;
   }
   .content-right__panel {
     padding: 10%;
+    border-radius: 0px;
   }
-  .content-right .form-item, .content-right__panel .form-item, .content-right .form-item--gender, .content-right__panel .form-item--gender, .content-right .form-item--membership, .content-right__panel .form-item--membership {
+  .content-right .form-item, .content-right .form-item--gender, .content-right .form-item--membership {
     display: block;
   }
-  .content-right .form-item__input, .content-right__panel .form-item__input {
+  .content-right .form-item__input {
     margin-top: 1%;
   }
-  .content-right .form-item__input-icon, .content-right__panel .form-item__input-icon {
+  .content-right .form-item__input-icon {
     top: unset;
     bottom: 0;
   }
-  .content-right .form-item__input-button, .content-right__panel .form-item__input-button {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-  }
-  .content-right .form-item--gender, .content-right__panel .form-item--gender, .content-right .form-item--membership, .content-right__panel .form-item--membership {
+  .content-right .form-item--gender, .content-right .form-item--membership {
     margin-top: 0;
   }
-  .content-right .form-item--gender .form-item__label, .content-right__panel .form-item--gender .form-item__label, .content-right .form-item--membership .form-item__label, .content-right__panel .form-item--membership .form-item__label {
+  .content-right .form-item--gender .form-item__label, .content-right .form-item--membership .form-item__label {
     display: block;
   }
-  .content-right .form-item--gender .radio-label, .content-right__panel .form-item--gender .radio-label, .content-right .form-item--membership .radio-label, .content-right__panel .form-item--membership .radio-label {
+  .content-right .form-item--gender .radio-label, .content-right .form-item--membership .radio-label {
     margin-right: 5%;
     display: inline-flex;
   }
-  .content-right .form-item--button, .content-right__panel .form-item--button {
+  .content-right .form-buttons {
     display: block;
     margin-top: 5%;
   }
-  .content-right form, .content-right__panel form {
-    padding: 15% 7%;
+  .content-right button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .content-right form {
+    padding: 8% 7%;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -323,10 +308,10 @@ input:focus {
     font-size: 18px;
   }
 
-  .content-right, .content-right__panel {
+  .content-right {
     width: 583px;
   }
-  .content-right form, .content-right__panel form {
+  .content-right form {
     padding: 63px 35px 153px;
   }
 }
@@ -348,10 +333,10 @@ input:focus {
     line-height: 1.26;
   }
 
-  .content-right, .content-right__panel {
+  .content-right {
     width: 807px;
   }
-  .content-right form, .content-right__panel form {
+  .content-right form {
     padding: 111px 155px 105px;
   }
 }

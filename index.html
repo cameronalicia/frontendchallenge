@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Front End Challenge</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/main.js"></script>
 </head>
+
 <body>
     <div class="content">
         <div class="content-left">
@@ -17,15 +20,18 @@
                 <h1>Front-end challenge!</h1>
                 <p>This is a design that you will need to code up and impress us.</p>
             </div>
-            <!-- <a href="#content-right"> -->
-                <img class="expand-arrow" onclick="expandRightPanel()" src="img/right-arrow.svg">
-            <!-- </a> -->
+            <img class="expand-arrow" onclick="expandRightPanel()" src="img/right-arrow.svg">
         </div>
         <div id="content-right" class="content-right">
             <div class="content-right__panel">
                 <h1>My World Today</h1>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. View all days eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. 
-                    Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat</p>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                    tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. View all days eu libero sit amet quam
+                    egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et
+                    sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+                    Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim
+                    ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus,
+                    tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat</p>
             </div>
             <form>
                 <div class="form-item">
@@ -34,18 +40,16 @@
                 </div>
                 <div class="form-item--gender">
                     <label class="form-item__label" for="gender">Gender</label>
-                    <!-- <span> -->
-                        <label class="radio-label" for="male">
-                            <input class="radio" type="radio" id="male" name="gender">
-                            <div class="form-item__input radio-gender--male space-right--small"></div>
-                            <span>Male</span>
-                        </label>
-                        <label class="radio-label" for="female">
-                            <input class="radio" type="radio" id="female" name="gender">
-                            <div class="form-item__input radio-gender--female space-right--small"></div>
-                            <span>Female</span>
-                        </label>
-                    <!-- </span> -->
+                    <label class="radio-label" for="male">
+                        <input class="radio-input" type="radio" id="male" name="gender">
+                        <div class="radio-gender--male"></div>
+                        <span>Male</span>
+                    </label>
+                    <label class="radio-label" for="female">
+                        <input class="radio-input" type="radio" id="female" name="gender">
+                        <div class="radio-gender--female"></div>
+                        <span>Female</span>
+                    </label>
                 </div>
                 <div class="form-item">
                     <label class="form-item__label" for="dob">Date of Birth</label>
@@ -69,33 +73,32 @@
                 </div>
                 <div class="form-item--membership">
                     <label class="form-item__label" for="membership">Membership</label>
-                    <!-- <span> -->
-                        <label class="radio-label" for="classic">
-                            <input class="radio" type="radio" id="classic" name="membership">
-                            <div class="form-item__input radio-membership space-right--small"></div>
-                            <span>Classic</span>
-                        </label>
-                        <label class="radio-label" for="silver">
-                            <input class="radio" type="radio" id="silver" name="membership">
-                            <div class="form-item__input radio-membership space-right--small"></div>
-                            <span>Silver</span>
-                        </label>
-                        <label class="radio-label" for="gold">
-                            <input class="radio" type="radio" id="gold" name="membership">
-                            <div class="form-item__input radio-membership space-right--small"></div>
-                            <span>Gold</span>
-                        </label>
-                    <!-- </span> -->
+                    <label class="radio-label" for="classic">
+                        <input class="radio-input" type="radio" id="classic" name="membership">
+                        <div class="radio-membership"></div>
+                        <span>Classic</span>
+                    </label>
+                    <label class="radio-label" for="silver">
+                        <input class="radio-input" type="radio" id="silver" name="membership">
+                        <div class="radio-membership"></div>
+                        <span>Silver</span>
+                    </label>
+                    <label class="radio-label" for="gold">
+                        <input class="radio-input" type="radio" id="gold" name="membership">
+                        <div class="radio-membership"></div>
+                        <span>Gold</span>
+                    </label>
                 </div>
-                <div class="form-item--button">
-                    <button class="form-item__input-button space-right--small" type="reset">CANCEL</button>
-                    <button class="form-item__input-button" type="submit">SAVE</button>
+                <div class="form-buttons">
+                    <button type="reset">CANCEL</button>
+                    <button type="submit">SAVE</button>
                 </div>
             </form>
         </div>
-    </div> 
-    <script  src="lib/jquery-3.3.1.min.js"></script> 
-    <script  src="lib/jquery-ui.min.js"></script> 
-    <script  src="js/main.js"></script> 
+    </div>
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

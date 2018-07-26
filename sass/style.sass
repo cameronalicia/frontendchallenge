@@ -1,26 +1,16 @@
 @import 'variables/colors'
+@import 'helpers/mixins'
 
 *
-    box-sizing: border-box
-    -moz-box-sizing: border-box
-    -webkit-box-sizing: border-box
+    @include box-sizing(border-box)
     
 body
     margin: 0px
     display: flex
     justify-content: center
 
-@mixin margin($val)
-    margin: $val
-
-@mixin background-image()
-    background-repeat: no-repeat
-    background-position: center
-
-@mixin transition-property()
-    transition: all 0.25s ease-in-out 0.25s   
-
 .content
+    @include box-shadow(0 2px 30px 0 rgba(0, 0, 0, .13))
     margin: 20px
     height: 892px
     display: flex
@@ -28,15 +18,11 @@ body
     font-family: Arial
     color: $black
     border-radius: 42.5px
-    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.13)
-    // margin: 60px 26px
 
 .content-left
     display: flex
-    background-color: $sunflower-yellow
     flex-direction: column
-    // width: 25%
-    // padding: 165px 75px 110px 
+    background-color: $sunflower-yellow
     align-items: center
     text-align: center
     justify-content: space-around
@@ -49,11 +35,12 @@ body
         overflow: hidden
         
         &__image
-            @include transition-property
             width: 100%
             height: 100%
             background-image: url('../img/profile.svg')
             background-size: contain
+            background-repeat: no-repeat
+            transition: all .25s ease-in-out .25s
 
             &:hover
                 width: 125%
@@ -61,30 +48,20 @@ body
                 margin-left: -12.5%
                 margin-top: -20%
 
-.expand-arrow
-    @include transition-property
-
-.rotate
-    transform: rotate(-180deg)
-
 .content-right
-    flex-direction: column
     height: inherit
-    // width: inherit
-    // padding: 63px 35px 153px 
-    // right: 100%
-
-.content-right__panel
-    @extend .content-right
-    background-color: $tangerine
-    border-radius: 0px 42.5px 42.5px 0px
-    color: $charcoal-grey
-    position: absolute
-    justify-content: center
-    display: none
-    padding: 241px 80px 250px 80px
-    line-height: 1.53
-    z-index: 1
+    
+    &__panel
+        height: inherit
+        width: inherit
+        background-color: $tangerine
+        border-radius: 0px 42.5px 42.5px 0px
+        color: $charcoal-grey
+        position: absolute
+        display: none
+        padding: 241px 80px 250px 80px
+        line-height: 1.53
+        z-index: 1
 
 .form-item
     color: $charcoal-grey
@@ -93,84 +70,47 @@ body
     align-items: center
     position: relative
 
-    span
-        display: flex
-
-    &--button
-        @include margin(80px 0 0)
-        display: flex
-        justify-content: flex-end
-        // margin-top: 60px
-        // margin-left: 20px
-        // outline: none
-        // height: 53px
-
     + .form-item
         padding-top: 20px
-    
-// .form-item--radio
-//     @extend .form-item
-//     grid-template-columns: 125px auto auto auto
-.form-item--gender
-     @extend .form-item
-     grid-template-columns: 125px auto auto
 
-.form-item--membership
-    @extend .form-item
-    @include margin(40px 0 0)
-    grid-template-columns: 125px auto auto auto
-    
-.form-item__input-icon
-    position: absolute
-    top: 22px
-    right: 0
-    padding: 15px 
+.form-item
+    &__label
+        font-size: 16px
+        text-align: left
 
-.form-item__label
-    font-size: 16px
-    text-align: left
-
-.form-item__input
-    @include transition-property
-    height: 53px
-    width: 100%
-    font-size: 16px
-    font-weight: 500
-    color: $charcoal-grey
-    border-radius: 5.3px
-    background-color: $pale-grey
-    border: solid 1px $pale-grey
-    padding: 20px
-
-    &:focus
-        // outline: none
-        background-color: rgba(245, 248, 249, 0.3)
-        border: solid 1px $cloudy-blue
-    &:hover
-        border: solid 1px $cloudy-blue
-
-    &-button
-        @include transition-property
+    &__input
+        width: 100%
+        padding: 20px
+        font-size: 16px
+        font-weight: 500
+        color: $charcoal-grey
+        background-color: $pale-grey
         border-radius: 5.3px
-        width: 160px
-        height: 53px
-        outline: none
-        border: none
-        font-size: 15px
+        border: solid 1px $pale-grey
+        transition: all .25s ease-in-out .25s  
 
-        &[type="reset"]
-            background-color: $pale-grey
-            color: $charcoal-grey
-            &:hover
-                background-color: $cloudy-blue
-        &[type="submit"]
-            background-color: $tiffany-blue
-            color: $white
-            &:hover
-                background-color: $greeny-blue
+        &:focus
+            background-color: rgba($pale-grey, .3)
+            border: solid 1px $cloudy-blue
+        &:hover
+            border: solid 1px $cloudy-blue
+
+        &-icon
+            position: absolute
+            top: 22px
+            right: 0
+            padding: 15px 
+
+    &--gender
+        @extend .form-item
+        grid-template-columns: 125px auto auto
+
+    &--membership
+        @extend .form-item
+        margin: 40px 0 0
+        grid-template-columns: 125px auto auto auto
         
-
-.radio
+.radio-input
     visibility: hidden
     position: absolute
 
@@ -185,40 +125,73 @@ body
             background-color: $cloudy-blue-two
             background-image: url("../img/card-white.svg")
     
-.radio-img
-    @include background-image
-    display: inline-block
-    background-color: $pale-grey
-    border-radius: 50%
+%radio-img
     height: 53px
     width: 53px
-    // margin-right: 20px
+    margin-right: 20px
+    background-repeat: no-repeat
+    background-position: center
+    background-color: $pale-grey
+    border: solid 1.2px $pale-grey
+    border-radius: 50%
+    transition: all .25s ease-in-out .25s  
 
     &:hover
         background-color: $pale-grey
         border: solid 1.2px #b3c1ce
 
-.radio-label
+.radio
+    &-label
+        display: flex
+        align-items: center
+        font-size: 14px
+
+    &-gender--male
+        @extend %radio-img
+        background-image: url("../img/male-grey.svg")
+
+    &-gender--female      
+        @extend %radio-img
+        background-image: url("../img/female-grey.svg")
+
+    &-membership
+        @extend %radio-img
+        background-image: url("../img/card-grey.svg")
+
+.form-buttons
+    margin: 80px 0 0
     display: flex
-    align-items: center
-    // margin-right: 50px
-    font-size: 14px
-    // width: 100%
-      
-.radio-gender--male
-    @extend .radio-img
-    background-image: url("../img/male-grey.svg")
+    justify-content: flex-end
 
-.radio-gender--female      
-    @extend .radio-img
-    background-image: url("../img/female-grey.svg")
+    button
+        transition: all .25s ease-in-out .25s
+        border-radius: 5.3px
+        width: 160px
+        height: 53px
+        outline: none
+        border: none
+        font-size: 15px
 
-.radio-membership
-    @extend .radio-img
-    background-image: url("../img/card-grey.svg")
+        &[type="reset"]
+            background-color: $pale-grey
+            color: $charcoal-grey
+            margin: 0 20px 0 0
 
-input[type="radio"]
-        width: 0
+            &:hover
+                background-color: $cloudy-blue
+
+        &[type="submit"]
+            background-color: $tiffany-blue
+            color: $white
+
+            &:hover
+                background-color: $greeny-blue
+
+.expand-arrow
+    transition: all .25s ease-in-out .25s
+
+.rotate
+    @include transform (rotate(-180deg))
 
 input[type='email']:invalid
     border: 1px solid $tangerine
@@ -234,15 +207,7 @@ input[type='email']:invalid
 input:focus
     outline: none
 
-.space-above
-    &--med
-        margin-top: 60px
-
-.space-right
-    &--small
-        margin-right: 20px
-
-@media only screen and (min-width: 320px) and (max-width: 1023px) //mobile
+@media only screen and (min-width: 320px) and (max-width: 1023px) //mobile & tablet
     .content
         min-width: 100%
         flex-direction: column
@@ -252,28 +217,28 @@ input:focus
         margin: 0
         
     .content-left
-        display: unset
-        flex-direction: unset
-        padding: 40% 10%
-        height: -webkit-fill-available
+        padding: 8% 10%
+        justify-content: center
 
         .container
-            display: inline-block
+            position: relative
 
         .expand-arrow
-            transform: rotate(90deg)
+            @include transform (rotate(90deg))
+            
             &.rotate
-                transform: rotate(-90deg)
+                @include transform (rotate(-90deg))
+               
         p
             font-size: 22px
             line-height: 1.26
         
-
     .content-right
-        height: 950px
-        border-radius: 0px
+        height: 1000px
+
         &__panel
             padding: 10%
+            border-radius: 0px
 
         .form-item
             display: block
@@ -282,10 +247,7 @@ input:focus
                 &-icon
                     top: unset
                     bottom: 0
-                &-button
-                    display: block
-                    width: 100%
-                    margin-top: 10px
+                
             &--gender, &--membership
                 margin-top: 0   
                 .form-item__label
@@ -293,14 +255,16 @@ input:focus
                 .radio-label
                     margin-right: 5%
                     display: inline-flex
-            &--button
-                display: block
-                margin-top: 5%
+        .form-buttons
+            display: block
+            margin-top: 5%
+
+        button
+            width: 100%
+            margin-top: 10px
 
         form
-            padding: 15% 7%
-
-     
+            padding: 8% 7%
 
 @media only screen and (min-width: 1024px) //desktop
     .content
@@ -310,7 +274,6 @@ input:focus
     .content-left
         width: 392px
         padding: 165px 50px 110px 
-        // flex-direction: column
 
         h1
             font-size: 24px
@@ -320,8 +283,6 @@ input:focus
 
     .content-right
         width: 583px
-        // flex-direction: column
-        
         
         form
             padding: 63px 35px 153px 
@@ -334,6 +295,7 @@ input:focus
     .content-left
         width: 553px
         padding: 165px 80px 110px 
+        
         h1
             font-size: 36px
 
